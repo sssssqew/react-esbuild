@@ -1,50 +1,24 @@
 {
-  "_from": "react-esbuild",
-  "_id": "react-esbuild@1.0.1",
-  "_inBundle": false,
-  "_integrity": "sha512-PfR90Ox6Sb1O4VyQNx96BASPkMIfdErofLJo25oNhEdA0mt/QBGhP4oqoq7peg7/av/bNBIlLyCWk8qhxofwlw==",
-  "_location": "/react-esbuild",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "react-esbuild",
-    "name": "react-esbuild",
-    "escapedName": "react-esbuild",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
+  "name": "react-esbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --loader:.css=local-css --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"'",
+    "start": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --loader:.css=local-css --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"' --watch --servedir=build",
+    "build-js": "node build.js",
+    "start-js": "node start.js"
   },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/react-esbuild/-/react-esbuild-1.0.1.tgz",
-  "_shasum": "70b5606e068a92fae25dfe07fc721050529cc4f9",
-  "_spec": "react-esbuild",
-  "_where": "/home/sunrise/음악",
+  "keywords": [],
   "author": "",
-  "bundleDependencies": false,
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "0.21.3"
+  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
-  "deprecated": false,
-  "description": "set \"Framework Preset\" to \"Create React App\" when you deploy at VERCEL",
-  "devDependencies": {
-    "esbuild": "0.21.3"
-  },
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
-  "name": "react-esbuild",
-  "scripts": {
-    "build": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"'",
-    "build-js": "node build.js",
-    "start": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"' --watch --servedir=build",
-    "start-js": "node start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "type": "module",
-  "version": "1.0.1"
+  "type": "module"
 }

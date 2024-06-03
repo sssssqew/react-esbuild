@@ -23,7 +23,7 @@ function createProject(){
 
   console.log(chalk.yellow(`\nCreating new project in ${dest} ...`))
   console.log('This might take a couple of milliseconds.')
-  console.time('[Build time] : ')
+  console.time('[Build time]')
 
   fs.mkdirSync(dest, { recursive: true })
 
@@ -32,7 +32,7 @@ function createProject(){
       console.error(chalk.red("Error occured in the middle of copying project."), err)
       return
     } else {
-      console.timeEnd('[Build time] : ')
+      console.timeEnd('[Build time]')
       console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
       console.log(`

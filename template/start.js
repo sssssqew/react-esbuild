@@ -21,7 +21,7 @@ esbuild
         bundle: true, 
         minify: true,
         outfile: 'build/bundle.js',
-        loader: { '.js': 'jsx',  '.png': 'file', '.jpg': 'file', '.svg': 'file'},
+        loader: { '.js': 'jsx',  '.css': 'local-css', '.png': 'file', '.jpg': 'file', '.svg': 'file'},
         format: 'cjs',
         define: {
             'process.env.REACT_APP_BASE_URL': '"set-your-environment-variable"'
