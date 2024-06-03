@@ -1,4 +1,7 @@
 import * as esbuild from 'esbuild'
+import detect from 'detect-port'
+
+const port = 8000
 
 // html 
 esbuild
@@ -31,7 +34,16 @@ esbuild
     .then(async (ctx) => {
         console.log('⚡ Bundle build complete ⚡')
         await ctx.watch().then(() => console.log('watching...'))
-        await ctx.serve({ servedir: 'build' }).then(() => console.log('serve at http://127.0.0.1:8000/'))
+        
+        detect(port).then(async _port => { // detect if port is available first 
+            if (port == _port) {
+                console.log(`port: ${port} was not occupied`)
+                await ctx.serve({ servedir: 'build' }).then(() => console.log(`serve at http://127.0.0.1:${port}/`))
+              } else {
+                console.log(`port: ${port} was occupied, try port: ${_port}`)
+                await ctx.serve({ servedir: 'build', port: _port }).then(() => console.log(`serve at http://127.0.0.1:${_port}/`))
+              }
+        })
     })
     .catch(e => {
         console.log('❌Failed to bundle ❌')
