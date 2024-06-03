@@ -3,6 +3,15 @@ You can install packages by following below command. \
 It will only take a few milliseconds. Amazing !
 
 
+# What is this?
+---
+This package can create react template with esbuild. \
+It is similar to CRA (create-react-app) but much faster.
+
+
+# Install 
+---
+In Node.js (version 16+), install with npm:
 ```
 npx react-esbuild [project-name]
 ```
