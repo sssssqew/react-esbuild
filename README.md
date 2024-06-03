@@ -1,4 +1,4 @@
-This package includes the global command for starting React and Esbuild project.
+This package includes the global command for starting React and Esbuild project. \
 You can install packages by following below command.
 
 
