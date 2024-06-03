@@ -1,7 +1,7 @@
 {
   "name": "react-esbuild",
-  "version": "1.2.4",
-  "description": "",
+  "version": "1.2.5",
+  "description": "This package can create react template with esbuild",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,14 @@
   "dependencies": {
     "chalk": "^4.1.2", 
     "fs-extra": "^11.2.0"
+  },
+  "homepage": "https://github.com/sssssqew/react-esbuild",
+  "bugs": {
+    "url": "https://github.com/sssssqew/react-esbuild/issues",
+    "email": "sunrise.in.my.dream@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sssssqew/react-esbuild.git"
   }
 }
