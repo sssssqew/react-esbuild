@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+const fs = require("fs")
+var fse = require('fs-extra')
+const path = require("path")
+const chalk = require('chalk') // use v4 
+
+const src = path.join(__dirname, "template")
+const dir = process.argv[2]
+
+function createProject(){
+  if (!dir){
+    console.error(chalk.red("Please enter project name, run: npx react-esbuild [project-name]"))
+    return
+  }
+
+  const dest = path.join(process.cwd(), dir)
+
+  if (fs.existsSync(dest)){
+    console.error(chalk.red("Directory exists, please choose another name"))
+    return
+  }
+
+  console.log(chalk.yellow(`\nCreating new project in ${dest} ...`))
+  console.log('This might take a couple of milliseconds.')
+  console.time('[Build time] : ')
+
+  fs.mkdirSync(dest, { recursive: true })
+
+  fse.copy(src, dest, function (err) {
+    if (err) {
+      console.error(chalk.red("Error occured in the middle of copying project."), err)
+      return
+    } else {
+      console.timeEnd('[Build time] : ')
+      console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
+      console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
+      console.log(`
+        ${chalk.yellow("cd") + " [project-name]"}
+        ${chalk.yellow("npm install")}
+
+        Then you can choose one of two options.
+        
+        ${chalk.yellow("npm run start-js")}
+        Starts the development server.
+
+        ${chalk.yellow("npm run build-js")}
+        Bundles the app into static files for production.
+      `)
+    }
+  })
+}
+
+createProject() 
+
+
