@@ -29,7 +29,8 @@ esbuild
         define: {
             'process.env.REACT_APP_BASE_URL': '"set-your-environment-variable"'
         },
-        sourcemap: true
+        sourcemap: true,
+        logLevel: 'info'
     })
     .then(async (ctx) => {
         console.log('⚡ Bundle build complete ⚡')
