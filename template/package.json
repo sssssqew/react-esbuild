@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"'",
+    "build": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"' --analyze --metafile=meta.json",
     "start": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"' --watch --servedir=build",
     "build-js": "node build.js",
     "start-js": "node start.js"

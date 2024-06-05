@@ -1,4 +1,5 @@
 import * as esbuild from 'esbuild'
+import fs from 'node:fs'
 
 // html 
 esbuild
@@ -25,9 +26,15 @@ esbuild
         format: 'cjs',
         define: {
             'process.env.REACT_APP_BASE_URL': '"set-your-environment-variable"'
-        }
+        },
+        metafile: true,
+        logLevel: 'info'
     })
-    .then(() => console.log('⚡ Bundle build complete ⚡'))
+    .then(async (result) => {
+        console.log('⚡ Bundle build complete ⚡')
+        console.log(await esbuild.analyzeMetafile(result.metafile))
+        fs.writeFileSync('meta.json', JSON.stringify(result.metafile))
+    })
     .catch(e => {
         console.log('❌Failed to bundle ❌')
         console.log(e)
