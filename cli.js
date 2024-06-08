@@ -32,12 +32,12 @@ function createProject(){
       console.error(chalk.red("Error occured in the middle of copying project."), err)
       return
     } else {
-      fs.writeFileSync(dest, `
+      fs.writeFileSync(path.join(dest, '.gitignore'), `
         node_modules
         build
         .env
       `) // create .gitignore file 
-      
+
       console.timeEnd('[Build time]')
       console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
