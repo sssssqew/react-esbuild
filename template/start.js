@@ -1,6 +1,9 @@
 import * as esbuild from 'esbuild'
 import detect from 'detect-port'
 import chalk from 'chalk'
+import { envPlugin } from './plugins.js'
+import dotenv from 'dotenv'
+dotenv.config() 
 
 const port = 8000
 const onRequest = (args) => {
@@ -31,11 +34,9 @@ esbuild
         outfile: 'build/bundle.js',
         loader: { '.js': 'jsx', '.png': 'file', '.jpg': 'file', '.svg': 'file'},
         format: 'cjs',
-        define: {
-            'process.env.REACT_APP_BASE_URL': '"set-your-environment-variable"'
-        },
         sourcemap: true,
-        logLevel: 'info'
+        logLevel: 'info',
+        plugins: [envPlugin],
     })
     .then(async (ctx) => {
         console.log('⚡ Bundle build complete ⚡')

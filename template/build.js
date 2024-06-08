@@ -1,5 +1,8 @@
 import * as esbuild from 'esbuild'
 import fs from 'node:fs'
+import { envPlugin } from './plugins.js'
+import dotenv from 'dotenv'
+dotenv.config() 
 
 // html 
 esbuild
@@ -24,11 +27,9 @@ esbuild
         outfile: 'build/bundle.js',
         loader: { '.js': 'jsx', '.png': 'file', '.jpg': 'file', '.svg': 'file'},
         format: 'cjs',
-        define: {
-            'process.env.REACT_APP_BASE_URL': '"set-your-environment-variable"'
-        },
         metafile: true,
-        logLevel: 'info'
+        logLevel: 'info',
+        plugins: [envPlugin],
     })
     .then(async (result) => {
         console.log('⚡ Bundle build complete ⚡')

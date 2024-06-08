@@ -2,9 +2,10 @@ import React from 'react'
 import './App.css'
 import logo from './logo.svg'
 import logo2 from './logo-2.png'
+import { REACT_APP_BASE_URL } from 'env'
 
 function App(){
-    console.log(process.env.REACT_APP_BASE_URL)
+    console.log(REACT_APP_BASE_URL)
 
     return (
         <div className='App'>
