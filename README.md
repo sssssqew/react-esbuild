@@ -31,5 +31,11 @@ And Write your own environment variables like bellow.
 ```
 REACT_APP_BASE_URL=http://127.0.0.1:8000/
 ```
+And then use those in your source code like bellow.
+```
+import { REACT_APP_BASE_URL } from 'env'
+console.log(REACT_APP_BASE_URL)
+```
+
 
 
