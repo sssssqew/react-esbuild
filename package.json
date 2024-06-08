@@ -1,6 +1,6 @@
 {
   "name": "react-esbuild",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "This package can create react template with esbuild",
   "main": "index.js",
   "scripts": {
@@ -30,13 +30,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sssssqew/react-esbuild.git"
-  },
-  "files": [
-    "node_modules",
-    "template",
-    "README.md",
-    "cli.js",
-    "package-lock.json",
-    "package.json"
-  ]
+  }
 }
