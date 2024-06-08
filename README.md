@@ -36,6 +36,13 @@ And then use those in your source code like bellow.
 import { REACT_APP_BASE_URL } from 'env'
 console.log(REACT_APP_BASE_URL)
 ```
+If you use version control system like git, Make .gitignore file too.
+```
+node_modules
+build
+.env
+```
+
 
 
 
