@@ -1,6 +1,6 @@
 {
   "name": "react-esbuild",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "This package can create react template with esbuild",
   "main": "index.js",
   "scripts": {
