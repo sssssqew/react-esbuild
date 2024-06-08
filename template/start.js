@@ -1,7 +1,12 @@
 import * as esbuild from 'esbuild'
 import detect from 'detect-port'
+import chalk from 'chalk'
 
 const port = 8000
+const onRequest = (args) => {
+    const { remoteAddress, method, path, status, timeInMS } = args
+    console.log(`${remoteAddress} - "${method} ${path}" ${(status === 404 || status === 500) ? chalk.red(status) : chalk.green(status)} [${timeInMS}ms]`) 
+}
 
 // html 
 esbuild
@@ -34,15 +39,15 @@ esbuild
     })
     .then(async (ctx) => {
         console.log('⚡ Bundle build complete ⚡')
-        await ctx.watch().then(() => console.log('watching...'))
+        await ctx.watch()
         
         detect(port).then(async _port => { // detect if port is available first 
             if (port == _port) {
                 console.log(`port: ${port} was not occupied`)
-                await ctx.serve({ servedir: 'build' }).then(() => console.log(`serve at http://127.0.0.1:${port}/`))
+                await ctx.serve({ servedir: 'build', onRequest })
               } else {
                 console.log(`port: ${port} was occupied, try port: ${_port}`)
-                await ctx.serve({ servedir: 'build', port: _port }).then(() => console.log(`serve at http://127.0.0.1:${_port}/`))
+                await ctx.serve({ servedir: 'build', port: _port, onRequest })
               }
         })
     })
