@@ -25,9 +25,9 @@ function createProject(){
   console.log('This might take a couple of milliseconds.')
   console.time('[Build time]')
 
-  fs.mkdirSync(dest, { recursive: true })
+  fs.mkdirSync(dest, { recursive: true }) // create destination folder 
 
-  fse.copy(src, dest, function (err) {
+  fse.copy(src, dest, function (err) { // copy files in template folder 
     if (err) {
       console.error(chalk.red("Error occured in the middle of copying project."), err)
       return
@@ -49,6 +49,11 @@ function createProject(){
       `)
     }
   })
+  fs.writeFileSync(dest, `
+    node_modules
+    build
+    .env
+  `) // create .gitignore file 
 }
 
 createProject() 
