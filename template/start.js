@@ -45,10 +45,10 @@ esbuild
         detect(port).then(async _port => { // detect if port is available first 
             if (port == _port) {
                 console.log(`port: ${port} was not occupied`)
-                await ctx.serve({ servedir: 'build', onRequest })
+                await ctx.serve({ servedir: 'build', fallback: `build/index.html`, onRequest })
               } else {
                 console.log(`port: ${port} was occupied, try port: ${_port}`)
-                await ctx.serve({ servedir: 'build', port: _port, onRequest })
+                await ctx.serve({ servedir: 'build', port: _port, fallback: `build/index.html`, onRequest })
               }
         })
     })
