@@ -23,4 +23,13 @@ npm i react-esbuild -g
 react-esbuild [project-name]
 ```
 
+# FAQ
+***
+#### how can i use environment variables?
+Make .env file in root directory of your project. \
+And Write your own environment variables like bellow.
+```
+REACT_APP_BASE_URL=http://127.0.0.1:8000/
+```
+
 
