@@ -44,7 +44,8 @@ build
 ```
 
 # test
-![react-esbuild test video](https://github.com/sssssqew/react-esbuild/assets/9676553/e67da367-ac92-4cae-b426-43ec9fd214f1)
+![react-esbuild test video](https://github.com/sssssqew/react-esbuild/assets/9676553/94e09ce9-ee3d-4c12-bc3b-ad342f71d146)
+
 
 
 
