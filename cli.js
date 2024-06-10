@@ -37,18 +37,7 @@ function createProject(){
 
       console.timeEnd('[Build time]')
 
-      console.log(chalk.yellow(`
-    ______                                                     
-   |  ___ \\                                                                    
-   | |   \\ |                                                                  
-   | |___/ /    ___       ____       ___     __                        
-   |  __  |   /  __ \\    / __ \\     / ___\\ __| |__      
-   | |  \\ \\  | |___\\ |  | /  | |   | |     |__  __|     
-   | |   \\ \\ \\  ____ /  | \\__|  \\  | |___     | |__              
-   |_|    \\_\\ \\____|     \\___ /\\_\\  \\____|    |____|           
-                   
-`))
-      
+      displayIntro(chalk)
       console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
       console.log(`
