@@ -43,7 +43,9 @@ build
 .env
 ```
 
-![Uploading react-esbuild test video.gif…]()
+# test
+![react-esbuild test video](https://github.com/sssssqew/react-esbuild/assets/9676553/e67da367-ac92-4cae-b426-43ec9fd214f1)
+
 
 
 
