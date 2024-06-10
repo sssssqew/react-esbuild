@@ -37,7 +37,7 @@ function createProject(){
 
       console.timeEnd('[Build time]')
 
-      displayIntro() 
+      displayIntro(chalk) 
       console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
       console.log(`
