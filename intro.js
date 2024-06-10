@@ -1,5 +1,5 @@
 // const chalk = require('chalk') // use v4 
-export default function displayIntro(){
+module.exports = function displayIntro(){
 console.log(chalk.yellow(`
     ______                                                       _______            _
    |  ___ \\                                                     |  _____|          | |                    _     _         _
