@@ -4,6 +4,7 @@ const fs = require("fs")
 var fse = require('fs-extra')
 const path = require("path")
 const chalk = require('chalk') // use v4 
+const displayIntro = require('./intro')
 
 const src = path.join(__dirname, "template")
 const dir = process.argv[2]
@@ -35,6 +36,8 @@ function createProject(){
       fs.writeFileSync(path.join(dest, '.gitignore'), `node_modules\nbuild\n.env`) // create .gitignore file 
 
       console.timeEnd('[Build time]')
+
+      displayIntro() 
       console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
       console.log(`
