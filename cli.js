@@ -37,7 +37,7 @@ function createProject(){
 
       console.timeEnd('[Build time]')
 
-      console.log(chalk.yellow(`
+      console.log(chalk.yellow(String.raw`
     ______                                                       _______            _
    |  ___ \\                                                     |  _____|          | |                    _     _         _
    | |   \\ |                                                    | |                | |                   |_|   | |       | |
