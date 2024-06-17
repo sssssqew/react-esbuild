@@ -24,8 +24,8 @@ react-esbuild [project-name]
 or
 
 #### recommended
-bun is a fast javascript runtime and package manager.
-it is much more faster than node !
+bun is a fast javascript runtime and package manager. 
+it is much more faster than node ! \
 If you want to use bun, install bun at first like bellow.
 
 In window,
