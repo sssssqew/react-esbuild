@@ -1,9 +1,7 @@
 import * as esbuild from 'esbuild'
 import detect from 'detect-port'
 import chalk from 'chalk'
-import { envPlugin } from './plugins.js'
-import dotenv from 'dotenv'
-dotenv.config() 
+import { setEnv } from './plugins.js'
 
 const port = 8000
 const onRequest = (args) => {
@@ -36,7 +34,7 @@ esbuild
         format: 'cjs',
         sourcemap: true,
         logLevel: 'info',
-        plugins: [envPlugin],
+        define: setEnv()
     })
     .then(async (ctx) => {
         console.log('⚡ Bundle build complete ⚡')

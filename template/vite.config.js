@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { setEnv } from './plugins'
 console.log('Loaded vitest config')
 
 // https://vitejs.dev/config/
@@ -16,5 +17,6 @@ export default defineConfig({
     // hey! 👋 over here
     globals: true,
     setupFiles: './tests/setup.js', // assuming the test folder is in the root of our project
-  }
+  },
+  define: setEnv(mode)
 })

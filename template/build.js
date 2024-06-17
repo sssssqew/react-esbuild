@@ -1,8 +1,6 @@
 import * as esbuild from 'esbuild'
 import fs from 'node:fs'
-import { envPlugin } from './plugins.js'
-import dotenv from 'dotenv'
-dotenv.config() 
+import { setEnv } from './plugins.js'
 
 // html 
 esbuild
@@ -29,7 +27,7 @@ esbuild
         format: 'cjs',
         metafile: true,
         logLevel: 'info',
-        plugins: [envPlugin],
+        define: setEnv()
     })
     .then(async (result) => {
         console.log('⚡ Bundle build complete ⚡')
