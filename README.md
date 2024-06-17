@@ -21,6 +21,30 @@ npm i react-esbuild -g
 react-esbuild [project-name]
 ```
 
+or
+
+#### recommended
+bun is a fast javascript runtime and package manager.
+it is much more faster than node !
+If you want to use bun, install bun at first like bellow.
+
+In window,
+```
+powershell -c "irm bun.sh/install.ps1 | iex"
+```
+In Linux & macOS,
+```
+curl -fsSL https://bun.sh/install | bash
+```
+And then install and create project like bellow.
+```
+bunx react-esbuild [project-name]
+cd [project-name]
+bun install
+bun run start-js (development)
+bun run build-js (production)
+```
+
 # FAQ
 
 #### how can i use environment variables?

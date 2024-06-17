@@ -43,13 +43,19 @@ function createProject(){
       console.log(`
         ${chalk.yellow("cd") + " [project-name]"}
         ${chalk.yellow("npm install")}
+        or
+        ${chalk.yellow("bun install (recommended)")}
 
         Then you can choose one of two options.
         
         ${chalk.yellow("npm run start-js")}
+        or
+        ${chalk.yellow("bun run start-js (recommended)")}
         Starts the development server.
 
         ${chalk.yellow("npm run build-js")}
+        or
+        ${chalk.yellow("bun run build-js (recommended)")}
         Bundles the app into static files for production.
       `)
     }
