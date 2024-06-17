@@ -42,7 +42,7 @@ function createProject(){
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
       console.log(`
         First, type commands bellow.
-        
+
         ${chalk.yellow("cd") + " [project-name]"}
         Move to new project folder.
 
@@ -56,6 +56,9 @@ function createProject(){
 
         ${chalk.yellow("npm run build-js")} or ${chalk.yellow("bun run build-js (recommended)")}
         Bundles the app into static files for production.
+
+        ${chalk.yellow("npm run test")} or ${chalk.yellow("bun run test (recommended)")}
+        Tests the app during your development.
       `)
     }
   })
