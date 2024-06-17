@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "build": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"' --analyze --metafile=meta.json",
     "start": "esbuild public/index.html --outfile=build/index.html --loader:.html=copy & esbuild src/index.js --bundle --minify --outfile=build/bundle.js --loader:.js=jsx --format=cjs --loader:.png=file --loader:.jpg=file --loader:.svg=file --define:\"process.env.REACT_APP_BASE_URL\"='\"set-your-environment-variable\"' --watch --servedir=build",
     "build-js": "node build.js",
@@ -14,9 +14,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^4.3.1",
     "chalk": "^5.3.0",
     "detect-port": "^1.6.1",
-    "esbuild": "0.21.3"
+    "esbuild": "0.21.3",
+    "jsdom": "^24.1.0",
+    "vitest": "^1.6.0"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
