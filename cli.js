@@ -41,7 +41,7 @@ function createProject(){
       console.log(chalk.green("\nDone..."), chalk.yellow("enjoy coding with react & esbuild !"))
       console.log(chalk.green("\nPlease follow this instrunction to start your project: "))
       console.log(`
-        First, type commands bellow.
+        - First, type commands bellow.
 
         ${chalk.yellow("cd") + " [project-name]"}
         Move to new project folder.
@@ -49,7 +49,7 @@ function createProject(){
         ${chalk.yellow("npm install")} or ${chalk.yellow("bun install (recommended)")}
         Install packages for this project.
 
-        Then you can choose one of two options.
+        - Then you can choose one of two options.
         
         ${chalk.yellow("npm run start-js")} or ${chalk.yellow("bun run start-js (recommended)")}
         Starts the development server.
