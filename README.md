@@ -45,6 +45,16 @@ bun run start-js (development)
 bun run build-js (production)
 ```
 
+#### caution 
+If you cannot download latest version when you use bunx,
+It is because bunx cache previous version.
+
+In window, go to path bellow in windows explorer and delete react-esbuild package.
+```
+C:\Users\Administrator\AppData\Local\Temp
+```
+
+
 # FAQ
 
 #### how can i use environment variables?
@@ -83,6 +93,10 @@ describe('App', () => {
 And then execute test files like bellow.
 ```
 npm test
+```
+or
+```
+bun run test (recommended)
 ```
 # test
 ![react-esbuild test video](https://github.com/sssssqew/react-esbuild/assets/9676553/94e09ce9-ee3d-4c12-bc3b-ad342f71d146)
