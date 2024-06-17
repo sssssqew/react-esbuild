@@ -31,7 +31,7 @@ You should add REACT_APP_ prefix when you define variables.
 REACT_APP_BASE_URL=http://127.0.0.1:8000/
 ```
 And then use those in your source code like bellow.
-```
+```js
 console.log(REACT_APP_BASE_URL)
 ```
 If you use version control system like git, Make .gitignore file too.
@@ -43,7 +43,7 @@ build
 #### how can i test my project?
 Make *.test.js files (App.test.js, Button.test.js etc.) inside src folder.
 And Write your own test code like bellow.
-```
+```js
 import { render, screen } from '@testing-library/react'
 import App from './App'
 
