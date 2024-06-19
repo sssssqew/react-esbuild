@@ -98,6 +98,8 @@ or
 ```
 bun run test (recommended)
 ```
+#### Does this package support old browsers like IE?
+Yes. This package can transfile javascript into ES5 (old syntax) by SWC. \ SWC is like babel. But it is much more faster!  
 # test
 ![react-esbuild test video](https://github.com/sssssqew/react-esbuild/assets/9676553/94e09ce9-ee3d-4c12-bc3b-ad342f71d146)
 
