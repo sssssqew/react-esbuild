@@ -1,4 +1,6 @@
 import { loadEnv } from 'vite'
+import swc from "@swc/core"
+import fs from 'node:fs'
 
 export const setEnv = (mode) => {
   mode = mode || "test"
@@ -10,4 +12,19 @@ export const setEnv = (mode) => {
     }
   }
   return define
+}
+
+export const transfile = async (path) => {
+  const output = await swc.transform(fs.readFileSync(path, 'utf-8'), {
+      sourceMaps: false,
+      isModule: false,
+      minify: true, 
+      jsc: {
+      parser: {
+          syntax: "ecmascript",
+      },
+      transform: {}, 
+      },
+  })
+  fs.writeFileSync(path, output.code)
 }

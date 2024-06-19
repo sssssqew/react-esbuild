@@ -1,11 +1,25 @@
 {
   "name": "react-esbuild",
-  "version": "2.1.5",
-  "description": "This package can create react template with esbuild",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "2.2.5",
+  "author": "Sungyong Lee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sssssqew/react-esbuild.git"
   },
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.2.0"
+  },
+  "bin": {
+    "react-esbuild": "./cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/sssssqew/react-esbuild/issues",
+    "email": "sunrise.in.my.dream@gmail.com"
+  },
+  "description": "This package can create react template with esbuild",
+  "homepage": "https://github.com/sssssqew/react-esbuild",
   "keywords": [
     "react",
     "esbuild",
@@ -13,22 +27,8 @@
     "create-react-app",
     "react-esbuild"
   ],
-  "author": "Sungyong Lee",
   "license": "MIT",
-  "bin": {
-    "react-esbuild": "./cli.js"
-  },
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "fs-extra": "^11.2.0"
-  },
-  "homepage": "https://github.com/sssssqew/react-esbuild",
-  "bugs": {
-    "url": "https://github.com/sssssqew/react-esbuild/issues",
-    "email": "sunrise.in.my.dream@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sssssqew/react-esbuild.git"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

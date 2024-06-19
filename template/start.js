@@ -1,12 +1,15 @@
 import * as esbuild from 'esbuild'
 import detect from 'detect-port'
 import chalk from 'chalk'
-import { setEnv } from './plugins.js'
+import { setEnv, transfile } from './plugins.js'
 
 const port = 8000
-const onRequest = (args) => {
+const bundledFile = "build/bundle.js"
+const onRequest = async (args) => {
     const { remoteAddress, method, path, status, timeInMS } = args
     console.log(`${remoteAddress} - "${method} ${path}" ${(status === 404 || status === 500) ? chalk.red(status) : chalk.green(status)} [${timeInMS}ms]`) 
+    await transfile(bundledFile) // transfile bundle.js whenever source code changes and build again
+    // console.log('Done... transfile into ES5')
 }
 
 // html 
