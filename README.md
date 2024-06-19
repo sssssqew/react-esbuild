@@ -23,7 +23,7 @@ react-esbuild [project-name]
 
 or
 
-### recommended
+## recommended
 bun is a fast javascript runtime and package manager. 
 it is much more faster than node ! \
 If you want to use bun, install bun at first like bellow.
@@ -45,7 +45,7 @@ bun run start-js (development)
 bun run build-js (production)
 ```
 
-### caution 
+## caution 
 If you cannot download latest version when you use bunx,
 It is because bunx cache previous version.
 
@@ -57,7 +57,7 @@ C:\Users\Administrator\AppData\Local\Temp
 
 # FAQ
 
-### how can i use environment variables?
+## how can i use environment variables?
 Make .env file in root directory of your project. \
 And Write your own environment variables like bellow.
 You should add REACT_APP_ prefix when you define variables.
@@ -74,7 +74,7 @@ node_modules
 build
 .env
 ```
-### how can i test my project?
+## how can i test my project?
 Make *.test.js files (App.test.js, Button.test.js etc.) inside src folder.
 And Write your own test code like bellow.
 ```js
@@ -98,7 +98,7 @@ or
 ```
 bun run test (recommended)
 ```
-### Does this package support old browsers like IE?
+## Does this package support old browsers like IE?
 Yes. This package can transfile javascript into ES5 (old syntax) by SWC. \ SWC is like babel. But it is much more faster!  
 # test
 ![react-esbuild test video](https://github.com/sssssqew/react-esbuild/assets/9676553/94e09ce9-ee3d-4c12-bc3b-ad342f71d146)
