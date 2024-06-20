@@ -98,7 +98,7 @@ or
 ```
 bun run test (recommended)
 ```
-## Does this package support old browsers like IE?
+## Does this package transfile into ES5 like Babel?
 Yes. This package can transfile javascript into ES5 (old syntax) by SWC. \
 SWC is like babel. But it is much more faster!  
 # test
