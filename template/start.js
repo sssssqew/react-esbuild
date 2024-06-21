@@ -31,7 +31,7 @@ esbuild
     .context({
         entryPoints: ['src/index.js'],
         bundle: true, 
-        minify: true,
+        minify: false,
         outfile: 'build/bundle.js',
         loader: { '.js': 'jsx', '.png': 'file', '.jpg': 'file', '.svg': 'file'},
         format: 'cjs',
