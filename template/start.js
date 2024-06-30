@@ -4,7 +4,6 @@ import http  from 'http'
 import { WebSocketServer, WebSocket } from "ws";
 import fs  from 'fs'
 import path  from 'path'
-import dns from 'dns'
 import detect from 'detect-port';
 import { setEnv, transfile } from './plugins.js'
 
@@ -171,15 +170,7 @@ detect(serverPort, (err, port) => {
         const timeInMS = Date.now() - startTime;
         onRequest({ remoteAddress, remoteHost, method, path: url, status, timeInMS });
       });
-    } else { // in case of real domain server (not necessary while development)
-      dns.reverse(remoteAddress, (err, hostnames) => {
-        const remoteHost = err ? 'unknown' : hostnames[0];
-        res.on('finish', () => {
-          const timeInMS = Date.now() - startTime;
-          onRequest({ remoteAddress, remoteHost, method, path: url, status, timeInMS });
-        });
-      });
-    }
+    } 
   });
   
   httpServer.listen(port, () => {
