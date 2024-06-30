@@ -10,7 +10,7 @@ function fallbackRender({ error, resetErrorBoundary }) {
 
     return (
       <div role="alert">
-        <div style={{ width: '100%', height: '100vh', color: "yellow", padding: "20px", fontWeight: 400, fontSize: '1.5rem', display: 'flex', flexDirection: 'column', backgroundColor: 'black'}}>
+        <div style={{ width: '100%', height: '100vh', color: "yellow", padding: "20px", fontWeight: 400, fontSize: '1.5rem', display: 'flex', flexDirection: 'column', backgroundColor: 'rgba(0, 0, 0, 0.9)'}}>
           <p>{error.message}</p>
           <pre style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', color: "orangered", padding: "20px", lineHeight: '1.3' }}>{error.stack}</pre>
           <img src={errImg} alt="error-img" style={{position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: '.5', width: '500px', height: '300px'}} />

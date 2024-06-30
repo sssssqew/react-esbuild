@@ -5,16 +5,150 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>esbuild example code</title>
+    <style>
+         #error{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* white-space: pre-wrap;  */
+            /* word-wrap: break-word; */
+            display: none;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            margin: 0;
+        }
+  
+    </style>
     <link rel="stylesheet" href="/bundle.css">
 </head>
 <body>
+    <pre id="error"></pre>
     <div id="root"></div>
+
     <script>
-        // HMR (Hot Module Replacement)
-        new EventSource('/esbuild').addEventListener('change', () => {
-            console.log("reloading...")
-            location.reload()
-        })
+        // define web socket event handlers
+        const ws = new WebSocket('ws://localhost:3000/ws');
+        ws.onmessage = function(event) {
+            const message = JSON.parse(event.data);
+            formatMessage(message);
+           
+        };
+        ws.onclose = function() {
+            console.log('WebSocket connection closed');
+        };
+        
+        
+      // transform ansi color codes into html style
+      function ansiToHtml(ansiString) {
+        if (typeof ansiString !== 'string') {
+            console.warn('Invalid ANSI string:', ansiString);
+            return '';
+        }
+
+        const ansiToHtmlMap = {
+            '30': 'color: white',
+            '32': 'color: green',
+            '40': 'background-color: black',
+            '41': 'background-color: red',
+            '42': 'background-color: green',
+            '43': 'background-color: yellow',
+            '44': 'background-color: blue',
+            '45': 'background-color: magenta',
+            '46': 'background-color: cyan',
+            '47': 'background-color: white',
+            '0': 'reset'
+        };
+
+        let htmlString = '';
+        let openTags = [];
+        let isSpecialBackground = false;
+
+        const regex = /\x1b\[(\d+)(;\d+)*m/g;
+        let match;
+        let lastIndex = 0;
+
+        while ((match = regex.exec(ansiString)) !== null) {
+            htmlString += ansiString.slice(lastIndex, match.index);
+
+            const codes = match[0].slice(2, -1).split(';').map(Number);
+            codes.forEach(code => {
+                if (code === 0) {
+                    // Reset all styles
+                    while (openTags.length > 0) {
+                        htmlString += openTags.pop();
+                    }
+                    isSpecialBackground = false;
+                } else if (code === 32) {
+                    // Green text
+                    const style = ansiToHtmlMap[code];
+                    if (style) {
+                        htmlString += `<span style="${style}">`;
+                        openTags.push('</span>');
+                    }
+                }else if (code >= 30 && code <= 37) {
+                    // Other text colors (treat as white) exept green text 
+                    const style = 'color: white';
+                    htmlString += `<span style="${style}">`;
+                    openTags.push('</span>');
+                }else if (code === 41 || code === 43) {
+                    // Red or yellow background
+                    isSpecialBackground = true;
+                    const style = ansiToHtmlMap[code];
+                    if (style) {
+                        htmlString += `<span style="color: white; ${style}">`;
+                        openTags.push('</span>');
+                    }
+                } else {
+                    const style = ansiToHtmlMap[code];
+                    if (style) {
+                        htmlString += `<span style="${isSpecialBackground ? 'color: white;' : ''} ${style}">`;
+                        openTags.push('</span>');
+                    }
+                }
+            });
+
+            lastIndex = regex.lastIndex;
+        }
+
+        htmlString += ansiString.slice(lastIndex);
+
+        // Close any remaining open tags
+        while (openTags.length > 0) {
+            htmlString += openTags.pop();
+        }
+
+        return htmlString;
+    }
+
+    function formatMessage(message){
+        if (message.type === 'reload') {
+            console.log('Build Succeeded');
+            location.reload();
+        } else if (message.type === 'error') {
+            displayMessage(message.errors)
+        }
+    }
+
+    function displayMessage(message){
+        const errors = Array.isArray(message) ? message : []; 
+        const errorMessage = errors.join('\n') || ''; 
+        const htmlMessage = ansiToHtml(errorMessage);
+        const errorDiv = document.getElementById('error');
+        const appDiv = document.getElementById('root');
+        errorDiv.innerHTML = htmlMessage
+        errorDiv.style.display = 'block';
+        appDiv.style.display = 'none';
+    }
+
     </script>
     <script src="/bundle.js"></script>
 </body>
