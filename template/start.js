@@ -21,13 +21,12 @@ let lastBuildError = null; // save last build status
 let wss = null 
 
 // set web socket server 
-detect(wsPort).then(async _port => { // detect if port is available first 
-  if (_port === wsPort) {
-      wss = new WebSocketServer({ port: wsPort });
-    } else {
-      wss = new WebSocketServer({ port: _port });
-    }
-})
+const _port = await detect(wsPort) // detect if port is available first 
+if (_port === wsPort) {
+  wss = new WebSocketServer({ port: wsPort });
+} else {
+  wss = new WebSocketServer({ port: _port });
+}
 
 // send message to clients
 function broadcast(message) {
