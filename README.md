@@ -55,6 +55,16 @@ C:\Users\Administrator\AppData\Local\Temp
 ```
 ![최신버전 다운로드 받는방법](https://github.com/sssssqew/react-esbuild/assets/9676553/8b896c11-a529-42f7-8e70-34774b44e2b7)
 
+
+If error occures when you try to use bunx,
+Follow bellow instructions.
+
+In linux, open your terminal window and type bellow command.
+And then reinstall bun.
+```
+rm -rf ~/.bun
+```
+
 # FAQ
 
 ## how can i use environment variables?
