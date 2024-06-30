@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import { ErrorBoundary  } from "react-error-boundary"
@@ -19,5 +19,6 @@ function fallbackRender({ error, resetErrorBoundary }) {
     )
 }
 
-ReactDOM.render(<ErrorBoundary fallbackRender={fallbackRender}><App/></ErrorBoundary>, document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<ErrorBoundary fallbackRender={fallbackRender}><App/></ErrorBoundary>)
 
