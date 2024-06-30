@@ -11,7 +11,7 @@ It is similar to CRA (create-react-app) but much faster.
 # Install 
 In Node.js (version 16+), install with npm:
 ```
-npx react-esbuild [project-name]
+npx react-esbuild@latest [project-name]
 ```
 
 or
